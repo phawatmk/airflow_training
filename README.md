@@ -19,6 +19,7 @@ Change your current directory to root directory and create ```airflow``` folder.
 ```
 cd /
 sudo mkdir airflow
+# change {user} to your user
 chown {user}:{user} airflow
 ```
 Access airflow folder and create necessory directory for airflow consist of <br />
@@ -30,4 +31,21 @@ Access airflow folder and create necessory directory for airflow consist of <br 
 ```
 mkdir -p ./dags ./logs ./plugins ./config
 echo -e "AIRFLOW_UID=$(id -u)" > .env
+```
+### Initialize the database
+Before initialize database.You should create ```docker-compose.yml``` which is a configuration file used by Docker Compose, a tool for defining and running multi-container Docker applications. <br />
+create ```docker-compose.yml``` by vi or nano and edit by add this code to ```docker-compose.yml``` file.<br />
+On all operating systems, you need to run database migrations and create the first user account. To do this, run.
+
+```
+sudo docker compose up airflow-init
+```
+
+After initialization is complete, you should see a message like this:
+
+```
+airflow-init_1       | Upgrades done
+airflow-init_1       | Admin user airflow created
+airflow-init_1       | 2.9.2
+start_airflow-init_1 exited with code 0
 ```
