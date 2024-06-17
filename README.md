@@ -33,8 +33,8 @@ mkdir -p ./dags ./logs ./plugins ./config
 echo -e "AIRFLOW_UID=$(id -u)" > .env
 ```
 ### Initialize the database
-Before initialize database.You should create ```docker-compose.yml``` which is a configuration file used by Docker Compose, a tool for defining and running multi-container Docker applications. <br />
-create ```docker-compose.yml``` by vi or nano and edit by add this code to ```docker-compose.yml``` file.<br />
+Before initialize database.You should create ```docker-compose.yml``` which is a configuration file used by Docker Compose, a tool for defining and running multi-container Docker applications. <br /><br />
+Create ```docker-compose.yml``` and edit by add code from [docker-compose.yml](https://github.com/phawatmk/airflow_training/blob/main/docker-compose.yml) to ```docker-compose.yml``` file.<br /><br />
 On all operating systems, you need to run database migrations and create the first user account. To do this, run.
 
 ```
