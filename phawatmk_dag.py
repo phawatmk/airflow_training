@@ -77,13 +77,15 @@ def load_df_to_db(df):
     else:
         print('no data')
 
+
+
 # Define default arguments for the DAG
 default_args = {
     'owner': 'airflow',
     'depends_on_past': False,
     'email_on_failure': False,
     'email_on_retry': False,
-}
+} 
 
 with DAG(dag_id=dag_id,
   schedule_interval=None,
@@ -92,10 +94,9 @@ with DAG(dag_id=dag_id,
   start_date=pendulum.datetime(2024, 1, 10, tz="Asia/Bangkok"),
   catchup=False
   ) as dag:
-  
 
     generate_df_task = generate_dataframe()
     load_df_to_db_task = load_df_to_db(generate_df_task)
 
 
-    generate_df_task >> load_df_to_db_task >> send_end_email
+    generate_df_task >> load_df_to_db_task
