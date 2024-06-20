@@ -79,6 +79,60 @@ After save file.DAG will be shown in web interface.<br /><br />
 Once the cluster has started up, you can log in to the web interface and begin experimenting with DAGs.<br />
 The webserver is available at: ```http://{YOUR HOST}:8080```. The default account has the login ```airflow``` and the password ```airflow```.<br />
 
+### Running DAG
+If your DAG was correct.It will be shown in web interface.Now you can running your DAG.<br />
+Click on your DAG.<br />
+In DAG interface you can see information about your DAG.<br />
+- Code <br />
+  Image <br />
+- Logs <br />
+  Image <br />
+- Graph <br />
+  Image <br />
+- History <br />
+  Image <br />
+
+You can run DAG by click on run bottom and click triggering DAG.<br />
+image <br />
+When DAG finish running. You can see log in Logs tab bar and checking task run and each log.<br />
+image <br />
 
 
+### Add new task
+Edit your DAG file. 
+- add this code below to line 80.<br />
+```
+@task
+def save_data_to_file():
+
+    host = 'postgres'
+    port = '5432'
+    database_name = 'postgres'
+    schema_name = 'public'
+    username = 'airflow'
+    password = 'airflow'
+    connection_string = f'postgresql://{username}:{password}@{host}:{port}/{database_name}'
+    table_name = 'customer_detail'
+    
+    # Create a SQLAlchemy engine
+    engine = create_engine(connection_string)
+    
+    # Define your SQL query
+    query = 'SELECT job, city, avg(salary) as average_salary FROM public.customer_detail'
+
+    # Use pandas to execute the query and load the data into a DataFrame
+    df = pd.read_sql_query(query, engine)
+
+    # Save the DataFrame to a CSV file
+    df.to_csv('output.csv', index=False)
+```
+ - add this code below to line 92
+```
+save_data_to_file_task = save_data_to_file()
+```
+- edit line 94 as this code below
+```
+generate_df_task >> load_df_to_db_task >> save_data_to_file_task
+```
+Then save file and open DAG in web interfaces.<br />
 
