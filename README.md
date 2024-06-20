@@ -59,7 +59,7 @@ You can check the condition of the containers and make sure that no containers a
 ```
 sudo docker ps
 ```
-image
+![alt text](https://github.com/phawatmk/airflow_training/blob/main/images/docker_ps.png) <br />
 
 ### Create DAG
 DAG is a collection of all the tasks you want to run, organized in a way that reflects their relationships and dependencies. A DAG is defined in a Python script, which represents the DAGs structure (tasks and their dependencies) as code.<br />
@@ -78,10 +78,10 @@ After save file.DAG will be shown in web interface.<br /><br />
 ### Accessing the web interface
 Once the cluster has started up, you can log in to the web interface and begin experimenting with DAGs.<br />
 The webserver is available at: ```http://{YOUR HOST}:8080```. The default account has the login ```airflow``` and the password ```airflow```.<br />
-
+![alt text](https://github.com/phawatmk/airflow_training/blob/main/images/airflow_login.png) <br />
 ### Running DAG
 If your DAG was correct.It will be shown in web interface.Now you can running your DAG.<br />
-Image <br />
+![alt text](https://github.com/phawatmk/airflow_training/blob/main/images/docker_ps.png) <br />
 Click on your DAG.<br />
 You can run DAG by click on run bottom and click triggering DAG.<br />
 When DAG finish running. You can see log in Logs tab bar and checking task run and each log.<br />
