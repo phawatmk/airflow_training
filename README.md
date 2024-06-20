@@ -78,11 +78,11 @@ After save file.DAG will be shown in web interface.<br /><br />
 ### Accessing the web interface
 Once the cluster has started up, you can log in to the web interface and begin experimenting with DAGs.<br />
 The webserver is available at: ```http://{YOUR HOST}:8080```. The default account has the login ```airflow``` and the password ```airflow```.<br />
-![alt text](https://github.com/phawatmk/airflow_training/blob/main/images/airflow_ui.png) <br />
+![alt text](https://github.com/phawatmk/airflow_training/blob/main/images/airflow_login.png) <br />
 
 ### Running DAG
 If your DAG was correct.It will be shown in web interface.Now you can running your DAG.<br />
-![alt text](https://github.com/phawatmk/airflow_training/blob/main/images/docker_ps.png) <br />
+![alt text](https://github.com/phawatmk/airflow_training/blob/main/images/airflow_ui.png) <br />
 Click on your DAG.<br />
 You can run DAG by click on run bottom and click triggering DAG.<br />
 When DAG finish running. You can see log in Logs tab bar and checking task run and each log.<br />
