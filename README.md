@@ -68,6 +68,75 @@ Change directory to dags folder<br />
 ```
 cd dags
 ```
-Create python file name {user}_dag.py
+1. Create python file name ```{user}_dag.py``` and replace ```{user}``` to your user.<br /><br />
+2. Edit file by vi or nano by add code from [phawatmk_dag.py](https://github.com/phawatmk/airflow_training/blob/main/phawatmk_dag.py).<br /><br />
+3. Revised line 10 change ```<YOUR DAG NAME>``` to ```{user}_dag``` (replace ```{user}``` to your user).<br /><br />
+4. Save file.<br /><br />
 
+After save file.DAG will be shown in web interface.<br /><br />
+
+### Accessing the web interface
+Once the cluster has started up, you can log in to the web interface and begin experimenting with DAGs.<br />
+The webserver is available at: ```http://{YOUR HOST}:8080```. The default account has the login ```airflow``` and the password ```airflow```.<br />
+
+### Running DAG
+If your DAG was correct.It will be shown in web interface.Now you can running your DAG.<br />
+Image <br />
+Click on your DAG.<br />
+You can run DAG by click on run bottom and click triggering DAG.<br />
+When DAG finish running. You can see log in Logs tab bar and checking task run and each log.<br />
+image <br />
+
+You can check data which's loaded into postgresql by exec to docker image by run this command.<br />
+
+```
+sudo docker exec -it airflow-postgres-1 /bin/bash
+```
+and run this command below to access postgresql.<br />
+```
+psql -d postgres -U airflow
+```
+Now you can check result by query table ```public.customer_detail```
+```
+select * from public.customer_detail;
+```
+You will get result as below:
+image
+### Add new task
+Edit your DAG file. 
+- add this code below to line 80.<br />
+```
+@task
+def save_data_to_file():
+
+    host = 'postgres'
+    port = '5432'
+    database_name = 'postgres'
+    schema_name = 'public'
+    username = 'airflow'
+    password = 'airflow'
+    connection_string = f'postgresql://{username}:{password}@{host}:{port}/{database_name}'
+    table_name = 'customer_detail'
+    
+    # Create a SQLAlchemy engine
+    engine = create_engine(connection_string)
+    
+    # Define your SQL query
+    query = 'SELECT job, city, avg(salary) as average_salary FROM public.customer_detail'
+
+    # Use pandas to execute the query and load the data into a DataFrame
+    df = pd.read_sql_query(query, engine)
+
+    # Save the DataFrame to a CSV file
+    df.to_csv('output.csv', index=False)
+```
+ - add this code below to line 100
+```
+save_data_to_file_task = save_data_to_file()
+```
+- edit line 102 as this code below
+```
+generate_df_task >> load_df_to_db_task >> save_data_to_file_task
+```
+Then save file and open DAG in web interfaces.<br />
 
