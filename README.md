@@ -81,6 +81,7 @@ The webserver is available at: ```http://{YOUR HOST}:8080```. The default accoun
 
 ### Running DAG
 If your DAG was correct.It will be shown in web interface.Now you can running your DAG.<br />
+Image <br />
 Click on your DAG.<br />
 In DAG interface you can see information about your DAG.<br />
 - Code <br />
@@ -97,6 +98,9 @@ image <br />
 When DAG finish running. You can see log in Logs tab bar and checking task run and each log.<br />
 image <br />
 
+You can check data which's loaded into postgresql by exec to docker image by run this command.<br />
+```
+sudo docker exec -it 
 
 ### Add new task
 Edit your DAG file. 
