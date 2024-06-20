@@ -129,7 +129,7 @@ def save_data_to_file():
     df = pd.read_sql_query(query, engine)
 
     # Save the DataFrame to a CSV file
-    df.to_csv('output.csv', index=False)
+    df.to_csv('/opt/airflow/plugins/average_salary.csv', index=False)
 ```
  - add this code below to line 122
 ```
