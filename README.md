@@ -131,11 +131,11 @@ def save_data_to_file():
     # Save the DataFrame to a CSV file
     df.to_csv('output.csv', index=False)
 ```
- - add this code below to line 100
+ - add this code below to line 122
 ```
 save_data_to_file_task = save_data_to_file()
 ```
-- edit line 102 as this code below
+- edit last as this code below
 ```
 generate_df_task >> load_df_to_db_task >> save_data_to_file_task
 ```
