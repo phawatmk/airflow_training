@@ -78,14 +78,15 @@ After save file.DAG will be shown in web interface.<br /><br />
 ### Accessing the web interface
 Once the cluster has started up, you can log in to the web interface and begin experimenting with DAGs.<br />
 The webserver is available at: ```http://{YOUR HOST}:8080```. The default account has the login ```airflow``` and the password ```airflow```.<br />
-![alt text](https://github.com/phawatmk/airflow_training/blob/main/images/airflow_login.png) <br />
+![alt text](https://github.com/phawatmk/airflow_training/blob/main/images/airflow_ui.png) <br />
+
 ### Running DAG
 If your DAG was correct.It will be shown in web interface.Now you can running your DAG.<br />
 ![alt text](https://github.com/phawatmk/airflow_training/blob/main/images/docker_ps.png) <br />
 Click on your DAG.<br />
 You can run DAG by click on run bottom and click triggering DAG.<br />
 When DAG finish running. You can see log in Logs tab bar and checking task run and each log.<br />
-image <br />
+![alt text](https://github.com/phawatmk/airflow_training/blob/main/images/airflow_logs.png) <br />
 
 You can check data which's loaded into postgresql by exec to docker image by run this command.<br />
 
@@ -100,8 +101,8 @@ Now you can check result by query table ```public.customer_detail```
 ```
 select * from public.customer_detail;
 ```
-You will get result as below:
-image
+You will get result like below:
+![alt text](https://github.com/phawatmk/airflow_training/blob/main/images/result.png) <br />
 ### Add new task
 Edit your DAG file. 
 - add this code below to line 80.<br />
