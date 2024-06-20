@@ -68,6 +68,17 @@ Change directory to dags folder<br />
 ```
 cd dags
 ```
-Create python file name {user}_dag.py
+1. Create python file name ```{user}_dag.py``` and replace ```{user}``` to your user.<br /><br />
+2. Edit file by vi or nano by add code from [phawatmk_dag.py](https://github.com/phawatmk/airflow_training/blob/main/phawatmk_dag.py).<br /><br />
+3. Revised line 10 change ```<YOUR DAG NAME>``` to ```{user}_dag``` (replace ```{user}``` to your user).<br /><br />
+4. Save file.<br /><br />
+
+After save file.DAG will be shown in web interface.<br /><br />
+
+### Accessing the web interface
+Once the cluster has started up, you can log in to the web interface and begin experimenting with DAGs.<br />
+The webserver is available at: ```http://{YOUR HOST}:8080```. The default account has the login ```airflow``` and the password ```airflow```.<br />
+
+
 
 
