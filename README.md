@@ -83,25 +83,25 @@ The webserver is available at: ```http://{YOUR HOST}:8080```. The default accoun
 If your DAG was correct.It will be shown in web interface.Now you can running your DAG.<br />
 Image <br />
 Click on your DAG.<br />
-In DAG interface you can see information about your DAG.<br />
-- Code <br />
-  Image <br />
-- Logs <br />
-  Image <br />
-- Graph <br />
-  Image <br />
-- History <br />
-  Image <br />
-
 You can run DAG by click on run bottom and click triggering DAG.<br />
-image <br />
 When DAG finish running. You can see log in Logs tab bar and checking task run and each log.<br />
 image <br />
 
 You can check data which's loaded into postgresql by exec to docker image by run this command.<br />
-```
-sudo docker exec -it 
 
+```
+sudo docker exec -it airflow-postgres-1 /bin/bash
+```
+and run this command below to access postgresql.<br />
+```
+psql -d postgres -U airflow
+```
+Now you can check result by query table ```public.customer_detail```
+```
+select * from public.customer_detail;
+```
+You will get result as below:
+image
 ### Add new task
 Edit your DAG file. 
 - add this code below to line 80.<br />
