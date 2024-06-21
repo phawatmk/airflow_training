@@ -124,7 +124,7 @@ def save_data_to_file():
     engine = create_engine(connection_string)
     
     # Define your SQL query
-    query = 'SELECT job, city, avg(salary) as average_salary FROM public.customer_detail'
+    query = 'SELECT job, city, avg(salary) as average_salary FROM public.customer_detail group by job, city'
 
     # Use pandas to execute the query and load the data into a DataFrame
     df = pd.read_sql_query(query, engine)
