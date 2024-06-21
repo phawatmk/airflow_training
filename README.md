@@ -20,7 +20,7 @@ Change your current directory to root directory and create ```airflow``` folder.
 cd /
 sudo mkdir airflow
 # change {user} to your user
-chown {user}:{user} airflow
+sudo chown {user}:{user} airflow
 ```
 Access airflow folder and create necessory directory for airflow consist of <br />
 - dags
