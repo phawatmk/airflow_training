@@ -29,6 +29,7 @@ Access airflow folder and create necessory directory for airflow consist of <br 
 - config
 
 ```
+cd /airflow
 mkdir -p ./dags ./logs ./plugins ./config
 echo -e "AIRFLOW_UID=$(id -u)" > .env
 ```
