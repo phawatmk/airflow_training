@@ -158,7 +158,7 @@ result file ```average_salary.csv``` will be shown.<br />
 ## Assignment
 1. Create new task name ```get_assignment_file```.
 2. Add this code on your ```{user}_dag.py``` and edit ```<YOUR QUERY>``` after query variable as assignment below.<br />
-- assignment : Get number of each city from table ```public.customer_detail```.<br />
+- assignment : Get total cutomer of each city from table ```public.customer_detail```.<br />
 ```
 @task
 def get_assignment():
