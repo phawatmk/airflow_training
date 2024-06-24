@@ -138,11 +138,10 @@ def save_data_to_file():
 save_data_to_file_task = save_data_to_file()
 ```
 - edit last as this code below
-```
+c
 generate_df_task >> load_df_to_db_task >> save_data_to_file_task
 ```
-Then save file and open DAG in web interfaces.<br />
-Your new task will be shown in web interfaces.<br />
+Then save file and open DAG in web interfaces.Your new task will be shown in web interfaces.<br />
 image<br />
 Click Trigger DAG.
 image<br />
@@ -150,4 +149,5 @@ When DAG run sucess, Open terminal and change directory to ```plugins``` folder.
 ```
 cd ../plugins/
 ```
-
+result file ```average_salary.csv``` will be shown.<br />
+image<br />
