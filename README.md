@@ -12,7 +12,7 @@ After run command. There are 2 promts in terminal.<br />
 
 If connection success.You will be logged into the remote server, and you'll see the remote system's command prompt.<br />
 
-## Creat Airflow project directory
+## Create Airflow project directory
 ### Initializing Environment
 Before starting Airflow for the first time, you need to prepare your environment, i.e. create the necessary files, directories and initialize the database.<br />
 Change your current directory to root directory and create ```airflow``` folder.<br />
