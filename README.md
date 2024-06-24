@@ -19,9 +19,15 @@ Change your current directory to root directory and create ```airflow``` folder.
 ```
 cd /
 sudo mkdir airflow
-# change {user} to your user
 sudo chown {user}:{user} airflow
 ```
+![alt text](https://github.com/phawatmk/airflow_training/blob/main/images/mkdir_airflow.png) <br /><br />
+Chage owner of ```airflow``` folder to your user.<br />
+```
+sudo chown {user}:{user} airflow
+```
+![alt text](https://github.com/phawatmk/airflow_training/blob/main/images/chown_airflow.png) <br /><br />
+
 Access airflow folder and create necessory directory for airflow consist of <br />
 - dags
 - logs
@@ -33,6 +39,7 @@ cd /airflow
 mkdir -p ./dags ./logs ./plugins ./config
 echo -e "AIRFLOW_UID=$(id -u)" > .env
 ```
+![alt text](https://github.com/phawatmk/airflow_training/blob/main/images/mkdir.png) <br /><br />
 ### Initialize the database
 Before initialize database.You should create ```docker-compose.yml``` which is a configuration file used by Docker Compose, a tool for defining and running multi-container Docker applications. <br /><br />
 Create ```docker-compose.yml``` and edit by add code from [docker-compose.yml](https://github.com/phawatmk/airflow_training/blob/main/docker-compose.yml) to ```docker-compose.yml``` file.<br /><br />
@@ -43,19 +50,13 @@ sudo docker compose up airflow-init
 ```
 
 After initialization is complete, you should see a message like this:
-
-```
-airflow-init_1       | Upgrades done
-airflow-init_1       | Admin user airflow created
-airflow-init_1       | 2.9.2
-start_airflow-init_1 exited with code 0
-```
+![alt text](https://github.com/phawatmk/airflow_training/blob/main/images/airflow_init.png) <br /><br />
 ### Running Airflow
 After initialize database.You can start running airflow by run this command.<br />
 ```
 sudo docker compose up -d
 ```
-
+![alt text](https://github.com/phawatmk/airflow_training/blob/main/images/docker_compose_up.png) <br /><br />
 You can check the condition of the containers and make sure that no containers are in an unhealthy condition.<br />
 ```
 sudo docker ps
@@ -106,7 +107,7 @@ select * from public.customer_detail;
 You will get result like below:
 ![alt text](https://github.com/phawatmk/airflow_training/blob/main/images/result.png) <br />
 ### Add new task
-Edit your DAG file. 
+Edit your DAG file ```{user}_dag.py```. 
 - add this code below to line 80.<br />
 ```
 @task
