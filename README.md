@@ -166,8 +166,7 @@ def save_data_to_file():
     df.to_csv('/opt/airflow/plugins/average_salary.csv', index=False)
 ```
 and remove ```>> save_data_to_file_task ``` on last line.<br />
-1. Create new task name ```get_assignment_file```.
-2. Add this code on your ```{user}_dag.py``` and edit ```<YOUR QUERY>``` after query variable as assignment below.<br />
+1. Add this code on your ```{user}_dag.py``` and edit ```<YOUR QUERY>``` after query variable as assignment below.<br />
 - assignment : Get total cutomer of each city from table ```public.customer_detail```.<br />
 ```
 @task
@@ -194,3 +193,4 @@ def get_assignment():
     # Save the DataFrame to a CSV file
     df.to_csv('/opt/airflow/plugins/assignment.csv', index=False)
 ```
+2. Create new task name ```get_assignment_file``` and add it in task dependencies after ```load_df_to_db_task```.
