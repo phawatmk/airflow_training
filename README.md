@@ -156,6 +156,16 @@ result file ```average_salary.csv``` will be shown.<br />
 ![alt text](https://github.com/phawatmk/airflow_training/blob/main/images/check_file.png) <br /><br />
 
 ## Assignment
+Before start assignment, remove code from task before.<br /><br />
+```
+@task
+def save_data_to_file():
+..
+..
+    # Save the DataFrame to a CSV file
+    df.to_csv('/opt/airflow/plugins/average_salary.csv', index=False)
+```
+and remove ```>> save_data_to_file_task ``` on last line.<br />
 1. Create new task name ```get_assignment_file```.
 2. Add this code on your ```{user}_dag.py``` and edit ```<YOUR QUERY>``` after query variable as assignment below.<br />
 - assignment : Get total cutomer of each city from table ```public.customer_detail```.<br />
