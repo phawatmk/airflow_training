@@ -89,7 +89,6 @@ If your DAG was correct.It will be shown in web interface.Now you can running yo
 - You can run DAG by click on run bottom and click triggering DAG.<br />
 - When DAG finish running. You can see log in Logs tab bar and checking task run and each log.<br />
 ![alt text](https://github.com/phawatmk/airflow_training/blob/main/images/airflow_after_trigger.png) <br /><br />
-![alt text](https://github.com/phawatmk/airflow_training/blob/main/images/airflow_after_trigger_log.png) <br />
 
 You can check data which's loaded into postgresql by exec to docker image by run this command.<br />
 
