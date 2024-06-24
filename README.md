@@ -142,9 +142,9 @@ save_data_to_file_task = save_data_to_file()
 generate_df_task >> load_df_to_db_task >> save_data_to_file_task
 ```
 Then save file and open DAG in web interfaces.Your new task will be shown in web interfaces.<br />
-image<br />
+![alt text](https://github.com/phawatmk/airflow_training/blob/main/images/airflow_add_new_task.png)<br /><br />
 Click Trigger DAG.
-image<br />
+![alt text](https://github.com/phawatmk/airflow_training/blob/main/images/airflow_after_run_new_task.png)<br /><br />
 When DAG run sucess, Open terminal and change directory to ```plugins``` folder.<br />
 
 ```
@@ -155,3 +155,32 @@ result file ```average_salary.csv``` will be shown.<br />
 ![alt text](https://github.com/phawatmk/airflow_training/blob/main/images/new_task_file.png)<br /><br />
 ![alt text](https://github.com/phawatmk/airflow_training/blob/main/images/check_file.png) <br /><br />
 
+## Assignment
+1. Create new task name ```get_assignment_file```.
+2. Add this code on your ```{user}_dag.py``` and edit ```<YOUR QUERY>``` after query variable as assignment below.<br />
+- assignment : Get number of each city from table ```public.customer_detail```.<br />
+```
+@task
+def get_assignment():
+
+    host = 'postgres'
+    port = '5432'
+    database_name = 'postgres'
+    schema_name = 'public'
+    username = 'airflow'
+    password = 'airflow'
+    connection_string = f'postgresql://{username}:{password}@{host}:{port}/{database_name}'
+    table_name = 'customer_detail'
+    
+    # Create a SQLAlchemy engine
+    engine = create_engine(connection_string)
+    
+    # Define your SQL query
+    query = '<YOUR QUERY>'
+
+    # Use pandas to execute the query and load the data into a DataFrame
+    df = pd.read_sql_query(query, engine)
+
+    # Save the DataFrame to a CSV file
+    df.to_csv('/opt/airflow/plugins/assignment.csv', index=False)
+```
