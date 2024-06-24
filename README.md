@@ -152,4 +152,6 @@ cd ../plugins/
 ```
 
 result file ```average_salary.csv``` will be shown.<br />
-image<br />
+![alt text](https://github.com/phawatmk/airflow_training/blob/main/images/new_task_file.png)<br /><br />
+![alt text](https://github.com/phawatmk/airflow_training/blob/main/images/check_file.png) <br /><br />
+
