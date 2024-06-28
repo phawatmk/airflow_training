@@ -166,7 +166,7 @@ def save_data_to_file():
     df.to_csv('/opt/airflow/plugins/average_salary.csv', index=False)
 ```
 and remove ```>> save_data_to_file_task ``` on last line.<br />
-1. Create your new DAG name ```{user}_dag_v2.py``` and add code from add code from [phawatmk_dag.py](https://github.com/phawatmk/airflow_training/blob/main/phawatmk_dag.py)
+1. Create your new DAG file name ```{user}_dag_v2.py``` and add code from [phawatmk_dag.py](https://github.com/phawatmk/airflow_training/blob/main/phawatmk_dag.py)
 2. Revise line 10 change ```<YOUR DAG NAME>``` to ```{user}_dag_v2```
 3. add this code below as new task like step before and edit ```<YOUR QUERY>``` after query variable as assignment below.<br />
 - assignment : Get total cutomer of each city from table ```public.customer_detail```.<br />
