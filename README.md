@@ -75,7 +75,7 @@ cd dags
 ```
 1. Create python file name ```{user}_dag.py``` by run this command.<br /><br />
 ```
-curl -o {user}_dag.py https://github.com/phawatmk/airflow_training/blob/main/phawatmk_dag.py
+wget -O {user}_dag.py https://raw.githubusercontent.com/phawatmk/airflow_training/main/phawatmk_dag.py
 ```
 2. Revised line 10 change ```<YOUR DAG NAME>``` to ```{user}_dag``` (replace ```{user}``` to your user).<br /><br />
 3. Save file.<br /><br />
@@ -161,10 +161,13 @@ result file ```average_salary.csv``` will be shown.<br />
 ![alt text](https://github.com/phawatmk/airflow_training/blob/main/images/check_file.png) <br /><br />
 
 ## Assignment
-1. Create your new DAG file name ```{user}_dag_v2.py``` and add code from [phawatmk_dag.py](https://github.com/phawatmk/airflow_training/blob/main/phawatmk_dag.py)
+1. Create your new DAG file name ```{user}_dag_v2.py``` .<br /><br />
+```
+wget -O {user}_dag_v2.py https://raw.githubusercontent.com/phawatmk/airflow_training/main/phawatmk_dag.py
+```
 2. Revise line 10 change ```<YOUR DAG NAME>``` to ```{user}_dag_v2```
 3. add this code below as new task like step before and edit ```<YOUR QUERY>``` after query variable as assignment below.<br />
-- assignment : Get total cutomer of each city from table ```public.customer_detail```.<br />
+- assignment : Get total customer of each city from table ```public.customer_detail```.<br />
 ```
 @task
 def get_assignment():
