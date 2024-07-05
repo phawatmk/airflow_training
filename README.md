@@ -42,7 +42,10 @@ echo -e "AIRFLOW_UID=$(id -u)" > .env
 ![alt text](https://github.com/phawatmk/airflow_training/blob/main/images/mkdir.png) <br /><br />
 ### Initialize the database
 Before initialize database.You should create ```docker-compose.yml``` which is a configuration file used by Docker Compose, a tool for defining and running multi-container Docker applications. <br /><br />
-Create ```docker-compose.yml``` and edit by add code from [docker-compose.yml](https://github.com/phawatmk/airflow_training/blob/main/docker-compose.yml) to ```docker-compose.yml``` file.<br /><br />
+Download ```docker-compose.yml``` from [docker-compose.yml](https://github.com/phawatmk/airflow_training/blob/main/docker-compose.yml) to ```docker-compose.yml``` file.<br /><br />
+```
+curl -o docker-compose.yml https://raw.githubusercontent.com/phawatmk/airflow_training/main/docker-compose.yml
+```
 On all operating systems, you need to run database migrations and create the first user account. To do this, run.
 
 ```
@@ -70,10 +73,12 @@ Change directory to dags folder<br />
 ```
 cd dags
 ```
-1. Create python file name ```{user}_dag.py``` and replace ```{user}``` to your user.<br /><br />
-2. Edit file by vi or nano by add code from [phawatmk_dag.py](https://github.com/phawatmk/airflow_training/blob/main/phawatmk_dag.py).<br /><br />
-3. Revised line 10 change ```<YOUR DAG NAME>``` to ```{user}_dag``` (replace ```{user}``` to your user).<br /><br />
-4. Save file.<br /><br />
+1. Create python file name ```{user}_dag.py``` by run this command.<br /><br />
+```
+curl -o {user}_dag.py https://github.com/phawatmk/airflow_training/blob/main/phawatmk_dag.py
+```
+2. Revised line 10 change ```<YOUR DAG NAME>``` to ```{user}_dag``` (replace ```{user}``` to your user).<br /><br />
+3. Save file.<br /><br />
 
 After save file.DAG will be shown in web interface.<br /><br />
 
